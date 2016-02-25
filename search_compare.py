@@ -3,7 +3,7 @@
 """Algorhythms"""
 
 import random
-from time
+import time
 
 def main():
     randint500 = random.randint(1, 500)
@@ -35,6 +35,7 @@ def sequential_search(a_list, item):
 
 
 def ordered_sequential_search(a_list, item):
+    start = time.time()
     pos = 0
     found = False
     stop = False
@@ -46,7 +47,48 @@ def ordered_sequential_search(a_list, item):
                 stop = True
             else:
                 pos = pos+1
-    return found
+    end = time.time()
+    total_time = end - start
+    return found, total_time
+
+def binary_search_iterative(a_list, item):
+    start = time.time()
+    first = 0
+    last = len(a_list) - 1
+    found = False
+    while first <= last and not found:
+        midpoint = (first + last) // 2
+        if a_list[midpoint] == item:
+           found = True
+        else:
+            if item < a_list[midpoint]:
+                last = midpoint - 1
+            else:
+                first = midpoint + 1
+
+    end = time.time()
+    total_time = end - start
+    return found, total_time
+
+
+def binary_search_recursive(a_list, item):
+    start = time.time()
+    if len(a_list) == 0:
+        return False
+    else:
+        midpoint = len(a_list) // 2
+    if a_list[midpoint] == item:
+        return True
+    else:
+        if item < a_list[midpoint]:
+            return binary_search_recursive(a_list[:midpoint], item)
+        else:
+            return binary_search_recursive(a_list[midpoint + 1:], item)
+    end = time.time()
+    total_time = end - start
+    return total_time
+
+
 
 randint500 = random.randint(1, 500)
 randint1000 = random.randint(1, 1000)
