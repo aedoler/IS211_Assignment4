@@ -16,22 +16,31 @@ def main():
         int = random.randrange(1, 1000, 1)
         randlist.append(int)
 
-    sequential_search(randlist, )
+    seq500 = sequential_search(randlist, randint500)
+    seq1000 = sequential_search(randlist, randint1000)
+    seq10000 = sequential_search(randlist, randint10000)
+    seq_total_time = seq500[1] + seq1000[1] + seq10000[1]
+    print "Sequential search took {} seconds to run, on average".format(seq_total_time)
 
 
 def sequential_search(a_list, item):
     start = time.time()
-    pos = 0
-    found = False
-    while pos < len(a_list) and not found:
-        if a_list[pos] == item:
-            found = True
-        else:
-            pos = pos + 1
-    end = time.time()
-    total_time = end - start
+    counter = 0
+    while counter < 100:
+        pos = 0
+        found = False
+        while pos < len(a_list) and not found:
+            if a_list[pos] == item:
+                found = True
+            else:
+                pos = pos + 1
+        counter += 1
+    else:
 
-    return found, total_time
+        end = time.time()
+        total_time = end - start
+
+        return found, total_time
 
 
 def ordered_sequential_search(a_list, item):
@@ -94,6 +103,7 @@ randint500 = random.randint(1, 500)
 randint1000 = random.randint(1, 1000)
 randint10000 = random.randint(1,10000)
 
+"""
 listOfLists = [[] for i in range(10)]
 randlist = []
 
@@ -103,6 +113,10 @@ for list in listOfLists:
         list.append(int)
 
 print listOfLists
+"""
+
+if __name__ == '__main__':
+    main()
 
 
 
