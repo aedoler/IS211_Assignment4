@@ -10,20 +10,32 @@ def main():
     randint1000 = random.randint(1, 1000)
     randint10000 = random.randint(1,10000)
 
-    randlist = []
+
+    randlist500 = [[] for i in range(100)]
+    randlist1000 = [[] for i in range(100)]
+    randlist10000 = [[] for i in range(100)]
+
+    for int in xrange(500):
+        int = random.randrange(1, 500, 1)
+        randlist500.append(int)
 
     for int in xrange(1000):
         int = random.randrange(1, 1000, 1)
-        randlist.append(int)
+        randlist1000.append(int)
 
-    seq500 = sequential_search(randlist, randint500)
-    seq1000 = sequential_search(randlist, randint1000)
-    seq10000 = sequential_search(randlist, randint10000)
+    for int in xrange(10000):
+        int = random.randrange(1, 10000, 1)
+        randlist10000.append(int)
+
+    seq500 = sequential_search(randlist500, randint500)
+    seq1000 = sequential_search(randlist1000, randint1000)
+    seq10000 = sequential_search(randlist10000, randint10000)
     seq_total_time = seq500[1] + seq1000[1] + seq10000[1]
     print "Sequential search took {} seconds to run, on average".format(seq_total_time)
 
 
 def sequential_search(a_list, item):
+    a_list.sort()
     start = time.time()
     counter = 0
     while counter < 100:
@@ -44,6 +56,7 @@ def sequential_search(a_list, item):
 
 
 def ordered_sequential_search(a_list, item):
+    a_list.sort()
     start = time.time()
     pos = 0
     found = False
@@ -61,6 +74,7 @@ def ordered_sequential_search(a_list, item):
     return found, total_time
 
 def binary_search_iterative(a_list, item):
+    a_list.sort()
     start = time.time()
     first = 0
     last = len(a_list) - 1
@@ -81,6 +95,7 @@ def binary_search_iterative(a_list, item):
 
 
 def binary_search_recursive(a_list, item):
+    a_list.sort()
     start = time.time()
     if len(a_list) == 0:
         return False
@@ -109,11 +124,16 @@ randlist = []
 
 for list in listOfLists:
     for int in xrange(10):
-        int = random.randrange(1, 1000, 1)
+        i"nt = random.randrange(1, 1000, 1)
         list.append(int)
 
-print listOfLists
-"""
+for n in listOfLists:
+    for num, sub in enumerate(n):
+        print 'hi', num
+
+print listOfLists"" \
+                 """
+
 
 if __name__ == '__main__':
     main()
