@@ -43,14 +43,14 @@ def main():
     bin500 = binary_search_iterative(randlist500, randint500)
     bin1000 = binary_search_iterative(randlist1000, randint1000)
     bin10000 = binary_search_iterative(randlist10000, randint10000)
-    bin_total_time = (seq500 + seq1000 + seq10000) / 3
+    bin_total_time = (bin500 + bin1000 + bin10000) / 3
     print "Iterative binary" \
           " search took {} seconds to run, on average".format(bin_total_time)
 
     bin_rec500 = binary_search_recursive(randlist500, randint500)
     bin_rec1000 = binary_search_recursive(randlist1000, randint1000)
     bin_rec10000 = binary_search_recursive(randlist10000, randint10000)
-    bin_rec_total_time = (seq500 + seq1000 + seq10000) / 3
+    bin_rec_total_time = (bin_rec500 + bin_rec1000 + bin_rec10000) / 3
     print "Recursive binary search took {} seconds" \
           " to run, on average".format(bin_rec_total_time)
 
@@ -60,21 +60,20 @@ def sequential_search(a_list, item):
     a_list.sort()
     start = time.time()
     counter = 0
-    while counter < 100:
-        pos = 0
-        found = False
-        while pos < len(a_list) and not found:
-            if a_list[pos] == item:
-                found = True
-            else:
-                pos = pos + 1
-        counter += 1
-    else:
 
-        end = time.time()
-        total_time = end - start
+    pos = 0
+    found = False
+    while pos < len(a_list) and not found:
+        if a_list[pos] == item:
+            found = True
+        else:
+            pos = pos + 1
+    counter += 1
 
-        return total_time
+    end = time.time()
+    total_time = end - start
+
+    return total_time
 
 
 def ordered_sequential_search(a_list, item):
@@ -120,20 +119,24 @@ def binary_search_recursive(a_list, item):
     a_list.sort()
     start = time.time()
     if len(a_list) == 0:
-        return False
+        end = time.time()
+        total_time = end - start
+        return total_time
     else:
         midpoint = len(a_list) // 2
     if a_list[midpoint] == item:
-        return True
+        end = time.time()
+        total_time = end - start
+        return total_time
     else:
         if item < a_list[midpoint]:
-            return binary_search_recursive(a_list[:midpoint], item)
+            end = time.time()
+            total_time = end - start
+            return total_time
         else:
-            return binary_search_recursive(a_list[midpoint + 1:], item)
-    end = time.time()
-    total_time = end - start
-    return total_time
-
+            end = time.time()
+            total_time = end - start
+            return total_time
 
 
 randint500 = random.randint(1, 500)
