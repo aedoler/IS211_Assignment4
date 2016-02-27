@@ -33,6 +33,28 @@ def main():
     seq_total_time = seq500[1] + seq1000[1] + seq10000[1]
     print "Sequential search took {} seconds to run, on average".format(seq_total_time)
 
+    ord_seq500 = sequential_search(randlist500, randint500)
+    ord_seq1000 = sequential_search(randlist1000, randint1000)
+    ord_seq10000 = sequential_search(randlist10000, randint10000)
+    ord_seq_total_time = ord_seq500[1] + ord_seq1000[1] + ord_seq10000[1]
+    print "Ordered sequential search took {} seconds" \
+          " to run, on average".format(ord_seq_total_time)
+
+    bin500 = sequential_search(randlist500, randint500)
+    bin1000 = sequential_search(randlist1000, randint1000)
+    bin10000 = sequential_search(randlist10000, randint10000)
+    bin_total_time = seq500[1] + seq1000[1] + seq10000[1]
+    print "Iterative binary" \
+          " search took {} seconds to run, on average".format(bin_total_time)
+
+    bin_rec500 = sequential_search(randlist500, randint500)
+    bin_rec1000 = sequential_search(randlist1000, randint1000)
+    bin_rec10000 = sequential_search(randlist10000, randint10000)
+    bin_rec_total_time = seq500[1] + seq1000[1] + seq10000[1]
+    print "Recursive binary search took {} seconds" \
+          " to run, on average".format(bin_rec_total_time)
+
+
 
 def sequential_search(a_list, item):
     a_list.sort()
