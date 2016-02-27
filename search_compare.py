@@ -30,27 +30,27 @@ def main():
     seq500 = sequential_search(randlist500, randint500)
     seq1000 = sequential_search(randlist1000, randint1000)
     seq10000 = sequential_search(randlist10000, randint10000)
-    seq_total_time = seq500 + seq1000 + seq10000
+    seq_total_time = (seq500 + seq1000 + seq10000) / 3
     print "Sequential search took {} seconds to run, on average".format(seq_total_time)
 
     ord_seq500 = ordered_sequential_search(randlist500, randint500)
     ord_seq1000 = ordered_sequential_search(randlist1000, randint1000)
     ord_seq10000 = ordered_sequential_search(randlist10000, randint10000)
-    ord_seq_total_time = ord_seq500 + ord_seq1000 + ord_seq10000
+    ord_seq_total_time = (ord_seq500 + ord_seq1000 + ord_seq10000) / 3
     print "Ordered sequential search took {} seconds" \
           " to run, on average".format(ord_seq_total_time)
 
     bin500 = binary_search_iterative(randlist500, randint500)
     bin1000 = binary_search_iterative(randlist1000, randint1000)
     bin10000 = binary_search_iterative(randlist10000, randint10000)
-    bin_total_time = seq500 + seq1000 + seq10000
+    bin_total_time = (seq500 + seq1000 + seq10000) / 3
     print "Iterative binary" \
           " search took {} seconds to run, on average".format(bin_total_time)
 
     bin_rec500 = binary_search_recursive(randlist500, randint500)
     bin_rec1000 = binary_search_recursive(randlist1000, randint1000)
     bin_rec10000 = binary_search_recursive(randlist10000, randint10000)
-    bin_rec_total_time = seq500 + seq1000 + seq10000
+    bin_rec_total_time = (seq500 + seq1000 + seq10000) / 3
     print "Recursive binary search took {} seconds" \
           " to run, on average".format(bin_rec_total_time)
 
